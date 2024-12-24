@@ -1,0 +1,43 @@
+/* 親要素 */
+.thanks-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+/* 子要素 */
+
+.home__front{
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  position: absolute;
+  flex-direction: column;
+
+}
+.thanks-front {
+  font-size: 40px;
+  color:#8B7969;
+}
+
+
+.home__button-back {
+  width: 20%;
+  height: 50px;
+  border: none;
+  border-radius: 3px;
+  background: #8B7969;
+  color: #fff;
+  cursor: pointer;
+}
+
+.thanks-back{
+  position: absolute;
+  font-size: 230px;
+  color: rgba(139, 69, 19, 0.1);
+  z-index: 1;
+  font-family: "Inika", serif;
+  font-style: normal;
+}
