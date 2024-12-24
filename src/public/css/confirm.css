@@ -1,0 +1,65 @@
+.confirm__content{
+  margin: 0 auto;
+  padding: 15px 15px;
+  max-width: 1230px;
+}
+
+.confirm-form__heading{
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2{
+  font-family: "Inika", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 28px;
+  color:#8B7969;
+}
+
+.confirm-table {
+  width: 70%;
+  border: 1px solid #E0DFDE;
+  margin: 0 auto;
+}
+
+
+.confirm-table__inner {
+  width: 100%;
+}
+
+.confirm-table__row{
+
+}
+.confirm-table__header {
+  background:  #BAA899;
+  color: #ffff;
+  width: 30%;
+}
+
+.confirm-table__header,
+.confirm-table__text{
+  padding: 15px;
+  border-bottom: 1px solid  #E0DFDE;
+}
+
+.confirm__button {
+    text-align: center;
+    margin: 30px;
+}
+
+.confirm__button-submit{
+  width: 10%;
+  height: 50px;
+  margin-right: 30px;
+  border: none;
+  border-radius: 3px;
+  background: #8B7969;
+  color: #fff;
+  cursor: pointer;
+}
+
+.confirm__button-fix{
+  color: #8B7969;
+}
+
