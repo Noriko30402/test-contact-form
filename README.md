@@ -1,49 +1,49 @@
-お問合せフォーム
+<ins> __#FashionablyLate(お問い合わせフォーム)__</ins>
 
 ## 環境構築 
 
-１）Dockerの設定<br>
-　　　①  ギットのクローン<br>
-         $git clone git@github.com:coachtech-material/laravel-docker-template.git<br>
-    ② 名前変更<br>
-         $ mv laravel-docker-template test-contact-form<br>
-    ③  dockerをビルド<br>
-     　$ docker-compose up -d --build<br>
-　　④   mac環境の場合『　docker-compose.yml　』ファイルのの変更が必須<br>
-　　　mysqlのserviseにて　<br>　　　
-　　　platform: linux/amd64　　　を追加する<br>
+###Dockerの設定
 
-2)Laravel の環境構築<br>
-   ①  laravelパッケージのインストール<br>
-　   $ docker-compose exec php bash<br>
-　　$ composer install<br>
+####Dockerビルド<br>
+ 1. $git clone git@github.com:coachtech-material/laravel-docker-template.git<br>
+ 2. 名前変更<br>
+    $ mv laravel-docker-template test-contact-form<br>
+ 3. dockerをビルド<br>
+    $ docker-compose up -d --build<br>
+ 4. mac環境の場合『　docker-compose.yml　』ファイルのの変更が必須<br>
+  ```
+　　mysql:
+    platform: linux/x86_64(この文追加)
+    image: mysql:8.0.26
+    environment:
 
-   ② .env.example　を使用して .envファイル作成し環境変数を変更<br>
+  ```
 
-   ③ .　phpを使用するためキーを作成<br>
-      $ docker-compose exec php bash<br>
-         php artisan key:generate<br>
-        php artisan config:clear<br>
-3)テーブル作成<br>
-　php artisan make:migration create_contacts_table<br>
-　php artisan make:migration create_categories_table<br>
+### Laravel の環境構築<br>
+ 1. $ docker-compose exec php bash<br>
+ 2.$ composer install<br>
+ 3.「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
+```
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
+```
 
-4)リレーション<br>
-　php artisan make:model Contact<br>
-　php artisan make:model Category<br>
-
-
-5)ダミーデータ作成<br>
-  php artisan make:factory ContactFactory<br>
-　php artisan make:seeder ContactsTableSeeder <br>
-
-6)認証機能<br>
-　composer require laravel/fortify<br>
-   php artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"<br>
-   php artisan migrate<br>
-  composer require laravel-lang/lang:~7.0 --dev<br>
- cp -r ./vendor/laravel-lang/lang/src/ja ./resources/lang/<br>
-php artisan make:controller AuthController<br>
+ 4. phpを使用するためキーを作成<br>
+ ```
+  $ php artisan key:generate
+```
+5.マイグレーションの実行
+```
+php artisan migrate
+```
+6.シーディングの実行
+```
+php artisan db:seed
+```
 
  ## 使用技術(実行環境)<br>
 
@@ -54,6 +54,6 @@ php artisan make:controller AuthController<br>
 ・nginx version: nginx/1.21.1<br>
 
 ## ER図 <br>
-<img width="812" alt="スクリーンショット 2024-12-24 23 08 50" src="https://github.com/user-attachments/assets/e9d71240-254e-4d4e-b970-f731da998b8d" />
 
 ## URL - 開発環境：http://localhost/
+         phpMyAdmin:：http://localhost:8080/
