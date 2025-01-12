@@ -1,10 +1,6 @@
-<ins> __#FashionablyLate(お問い合わせフォーム)__</ins>
+<br>#FashionablyLate(お問い合わせフォーム)</ins>
 
-## 環境構築 
-
-###Dockerの設定
-
-####Dockerビルド<br>
+## Dockerのビルド 
  1. $git clone git@github.com:coachtech-material/laravel-docker-template.git<br>
  2. 名前変更<br>
     $ mv laravel-docker-template test-contact-form<br>
@@ -16,13 +12,12 @@
     platform: linux/x86_64(この文追加)
     image: mysql:8.0.26
     environment:
-
   ```
 
 ### Laravel の環境構築<br>
- 1. $ docker-compose exec php bash<br>
- 2.$ composer install<br>
- 3.「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
+1. $ docker-compose exec php bash<br>
+2.$ composer install<br>
+3.「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
 ```
 DB_CONNECTION=mysql
 DB_HOST=mysql
@@ -32,9 +27,9 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
 
- 4. phpを使用するためキーを作成<br>
+4. phpを使用するためキーを作成<br>
  ```
-  $ php artisan key:generate
+$ php artisan key:generate
 ```
 5.マイグレーションの実行
 ```
@@ -54,6 +49,7 @@ php artisan db:seed
 ・nginx version: nginx/1.21.1<br>
 
 ## ER図 <br>
-
-## URL - 開発環境：http://localhost/
-         phpMyAdmin:：http://localhost:8080/
+![ER図] (./Users/fujimuranoriko/coachtech/laravel/test-contact-form/src/ER.drawio)
+## URL -
+開発環境：http://localhost/<br>
+phpMyAdmin:：http://localhost:8080/
