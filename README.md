@@ -1,4 +1,4 @@
-#<ins>FashionablyLate(お問い合わせフォーム)</ins>
+# FashionablyLate(お問い合わせフォーム)
 
 ## Dockerのビルド 
  1. $git clone git@github.com:coachtech-material/laravel-docker-template.git<br>
