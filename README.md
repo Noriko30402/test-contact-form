@@ -1,4 +1,4 @@
-<br>#FashionablyLate(お問い合わせフォーム)</ins>
+<ins>#FashionablyLate(お問い合わせフォーム)</ins>
 
 ## Dockerのビルド 
  1. $git clone git@github.com:coachtech-material/laravel-docker-template.git<br>
@@ -14,7 +14,7 @@
     environment:
   ```
 
-### Laravel の環境構築<br>
+### Laravel の環境構築
 1. $ docker-compose exec php bash<br>
 2.$ composer install<br>
 3.「.env.example」ファイルを 「.env」ファイルに命名を変更。または、新しく.envファイルを作成
@@ -27,7 +27,7 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
 
-4. phpを使用するためキーを作成<br>
+4. phpを使用するためキーを作成
  ```
 $ php artisan key:generate
 ```
@@ -40,7 +40,7 @@ php artisan migrate
 php artisan db:seed
 ```
 
- ## 使用技術(実行環境)<br>
+ ## 使用技術(実行環境)
 
 ・Docker. Ver 27.3.1<br>
 ・php:PHP 7.4<br>
@@ -48,8 +48,9 @@ php artisan db:seed
 ・mysql  Ver 8.0.26 for Linux on x86_64<br>
 ・nginx version: nginx/1.21.1<br>
 
-## ER図 <br>
-![ER図] (./Users/fujimuranoriko/coachtech/laravel/test-contact-form/src/ER.drawio)
+## ER図 
+![スクリーンショット 2025-01-12 16 53 38](https://github.com/user-attachments/assets/c3381ffe-cf07-4e81-9885-ab08b4515ea7)
+
 ## URL -
 開発環境：http://localhost/<br>
 phpMyAdmin:：http://localhost:8080/
