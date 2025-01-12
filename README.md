@@ -1,4 +1,4 @@
-<ins>#FashionablyLate(お問い合わせフォーム)</ins>
+#<ins>FashionablyLate(お問い合わせフォーム)</ins>
 
 ## Dockerのビルド 
  1. $git clone git@github.com:coachtech-material/laravel-docker-template.git<br>
@@ -49,7 +49,8 @@ php artisan db:seed
 ・nginx version: nginx/1.21.1<br>
 
 ## ER図 
-![スクリーンショット 2025-01-12 16 53 38](https://github.com/user-attachments/assets/c3381ffe-cf07-4e81-9885-ab08b4515ea7)
+
+<img width="834" alt="スクリーンショット 2025-01-12 17 19 40" src="https://github.com/user-attachments/assets/d22e29fd-8ce2-45aa-9287-fdac0db91916" />
 
 ## URL -
 開発環境：http://localhost/<br>
