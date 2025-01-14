@@ -15,16 +15,14 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+// Route::post('/register', [AuthController::class, 'index']);
+// Route::post('/login', [AuthController::class, '']);
 
 Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::get('/thanks',[ContactController::class,'store']);
 
 // Route::middleware('auth')->group(function () {
-  // Route::get('/register', [AuthController::class, 'index']);
-  // Route::post('/register',[AuthController::class,'store']);
-  // Route::post('/login',[AuthController::class,'store']);
-
   Route::get('/admin', [AdminController::class, 'index']);
   Route::get('/search', [AdminController::class, 'search']);
   // });

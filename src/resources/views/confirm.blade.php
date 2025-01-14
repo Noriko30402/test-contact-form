@@ -110,7 +110,7 @@
     <table class="confirm-table__inner">
       <tr class="confirm-table__row">
         <th class="confirm-table__header">お名前</th>
-        <td class="confirm-table__text" >{{ $contact['last_name'].''.$contact['first_name']}}
+        <td class="confirm-table__text" >{{ $contact['last_name'].' '.$contact['first_name']}}
         <input type="hidden" name="first_name" value="{{ $contact['first_name'] }}"/>
         <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}"/>
         </td>
@@ -121,9 +121,9 @@
         <th class="confirm-table__header">性別</th>
         <td>
         @if(isset($contact['gender']))
-            @if($contact['gender'] == '男')
+            @if($contact['gender'] == '1')
               <div class="confirm-table__text">男性</div>
-            @elseif($contact['gender'] == '女')
+            @elseif($contact['gender'] == '2')
               <div class="confirm-table__text">女性</div>
             @else
               <div class="confirm-table__text">その他</div>

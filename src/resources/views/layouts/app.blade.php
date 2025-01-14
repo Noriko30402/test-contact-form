@@ -15,6 +15,20 @@
   @yield('css')
 </head>
 
+
+{{-- <body>
+  <div class="app">
+    <header class="header">
+      <h1 class="header__heading">FashionablyLate</h1>
+      @yield('link')
+    </header>
+    <div class="content">
+      @yield('content')
+    </div>
+  </div>
+</body>
+
+</html> --}}
 <body>
   <header class="header">
     <div class="header__inner">
@@ -34,11 +48,11 @@
             @else
                   @if (Request::is('login'))
                       <li class="header-nav__item">
-                          <a href="{{ route('register') }}" class="header-nav__button">Register</a>
+                          <a href="/register" class="header-nav__button">Register</a>
                       </li>
                   @elseif (Request::is('register'))
                       <li class="header-nav__item">
-                          <a href="{{ route('login') }}" class="header-nav__button">Login</a>
+                          <a href="/login" class="header-nav__button">Login</a>
                       </li>
                   @endif
               @endif

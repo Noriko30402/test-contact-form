@@ -12,13 +12,14 @@ class AdminController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $contacts = Contact::all();
+        // $contacts = Contact::all();
 
-        // $contacts = Contact::paginate(7);
-    
+        // $contacts = Contact::with('category')->paginate(7);
+
+        $contacts = Contact::paginate(7);
         return view('admin', compact('categories', 'contacts'));
     }
-    
+
 
     public function search(Request $request)
     {
@@ -48,7 +49,10 @@ class AdminController extends Controller
             $contacts = $contacts->whereDate('created_at', $createdAt);
         }
     
-        $contacts = $contacts->with('category')->get();
+        // $contacts = $contacts->with('category')->get();
+        // $contacts = Contact::with('category')->paginate(7);
+        $contacts = $contacts->paginate(7);
+
         $categories = Category::all();
     
         return view('admin', compact('contacts', 'categories'));

@@ -30,25 +30,15 @@ class ContactRequest extends FormRequest
 
             'gender' => 'required',
             'email' => 'required | string | email | max:255',
-            'tel1' => 'required | numeric | digits_between:1,5',
-            'tel2' =>'required | numeric | digits_between:1,5',
-            'tel3' => 'required | numeric | digits_between:1,5' ,
-            'tell' => 'required|numeric ',
+
+            'tel1' => 'required | max:5 | regex:/^[0-9]+$/',
+            'tel2' => 'required | max:5 | regex:/^[0-9]+$/',
+            'tel3' => 'required | max:5 | regex:/^[0-9]+$/',
+
             'address' => 'required | max:255' ,
             'detail' => 'required | max:120',
         ];
     }
-
-public function validationData()
-{ 
-     $this->merge([ 
-       'tell' => $this->input('tel1') . $this->input('tel2') . $this->input('tel3'),
-    ]);
-
-     return parent::validationData();
-
- }
-
 
     public function messages()
     {
@@ -60,17 +50,17 @@ public function validationData()
             'email.required' => 'メールアドレスを入力してください',
             'email.email' => 'メールアドレスはメール形式で入力してください',
 
-            'tel1.numeric' => '電話番号は5桁までの数字で入力してください',
-            'tel2.numeric' => '電話番号は5桁までの数字で入力してください',
-            'tel3.numeric' => '電話番号は5桁までの数字で入力してください',
-
-            'tel1.digits_between' => '電話番号は5桁までの数字で入力してください',
-            'tel2.digits_between' => '電話番号は5桁までの数字で入力してください',
-            'tel3.digits_between' => '電話番号は5桁までの数字で入力してください',
-
             'tel1.required' => '電話番号を入力してください',
+            'tel1.regex' => '電話番号は半角数字で入力してください',
+            'tel1.max' => '電話番号は5桁までの数字で入力してください',
+
             'tel2.required' => '電話番号を入力してください',
+            'tel2.regex' => '電話番号は半角数字で入力してください',
+            'tel2.max' => '電話番号は5桁までの数字で入力してください',
+            
             'tel3.required' => '電話番号を入力してください',
+            'tel3.regex' => '電話番号は半角数字で入力してください',
+            'tel3.max' => '電話番号は5桁までの数字で入力してください',
 
             'address.required' =>'住所を入力してください',
             'category_id.required' =>'問い合わせの種類を選択してください',

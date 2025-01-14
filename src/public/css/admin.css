@@ -91,12 +91,11 @@ label {
   color: #999;
 }
 
-/* .search-filter__item-date input[type="date"]::-webkit-clear-button{
-  -webkit-appearance: none;
-} */
-
 .search-filter__button{
 width: 20%;
+display: flex;
+justify-content: space-between;
+
 }
 
 .search-filter__button-submit {
@@ -107,6 +106,7 @@ width: 20%;
   background: #8B7969;
   color: #fff;
   cursor: pointer; 
+
 }
 
 .search-filter__button-reset {
@@ -117,7 +117,6 @@ width: 20%;
   background: #D9C5B5; 
   color: #fff;
   cursor: pointer;
-  margin-left: 20px;
 }
 
 /* 一覧 */
@@ -163,16 +162,67 @@ width: 20%;
 
 .admin-form__item td{
   padding: 30px;
+}
+
+/* ページネーション */
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+ justify-content: flex-end;
+}
+.pagination-nav {
+  text-align: right;
+  font-family: "Inika", serif;
+  font-weight: 400;
+  font-style: normal;
+  /* font-size: px; */
 
 }
 
-/* svg.w-5.h-5 {
-  width: 30px;
-  height: 30px;
-  color: #8B7969;
-} */
+.pagination__item {
+  display: block;
+  text-decoration: none;
+  border: 1px solid #8B7969;
+  box-sizing: border-box;
+  margin-top: 15px;
+}
 
-/* .pagination{
+.pagination__link {
   color: #8B7969;
-} */
 
+}
+
+.pagination__link:hover {
+  color: #8B7969;
+}
+
+.pagination__item.active .pagination__link {
+  color: #8B7969;
+
+}
+
+.pagination__item.disabled .pagination__link {
+  color: #8B7969;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.pagination__number {
+  display: inline-block;
+  padding: 4px 8px;
+}
+
+.pagination__arrow {
+  display: inline-block;
+  font-size: 1.2em;
+  color: #8B7969;
+  padding: 2px 5px;
+}
+
+.pagination__link:hover .pagination__arrow {
+  color: #8B7969;
+  border-radius: 4px 0 0 0;
+
+}
