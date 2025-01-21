@@ -15,56 +15,17 @@
   @yield('css')
 </head>
 
-
-{{-- <body>
-  <div class="app">
-    <header class="header">
-      <h1 class="header__heading">FashionablyLate</h1>
-      @yield('link')
-    </header>
-    <div class="content">
-      @yield('content')
-    </div>
-  </div>
-</body>
-
-</html> --}}
 <body>
+<div class="app">
   <header class="header">
-    <div class="header__inner">
-      <div class="header-utilities">
-        <a class="header__logo" href="/">
-          FashionablyLate
-        </a>
-        <nav>
-          <ul class="header-nav">
-            @if (Auth::check())
-                <li class="header-nav__item">
-                    <form class="form" action="/logout" method="post">
-                        @csrf
-                        <button class="header-nav__button">logout</button>
-                    </form>
-                </li>
-            @else
-                  @if (Request::is('login'))
-                      <li class="header-nav__item">
-                          <a href="/register" class="header-nav__button">Register</a>
-                      </li>
-                  @elseif (Request::is('register'))
-                      <li class="header-nav__item">
-                          <a href="/login" class="header-nav__button">Login</a>
-                      </li>
-                  @endif
-              @endif
-          </ul>
-        </nav>
-      </div>
-    </div>
+        <h1 class="header__heading" >FashionablyLate</h1>
+        @yield('link')
   </header>
 
-  <main>
+  <div class="content">
     @yield('content')
-  </main>
+  <div>
+<div>
 </body>
 
 </html>

@@ -18,7 +18,7 @@
   margin-bottom: 20px;
   text-align: center;
   color: #8B7969;
-  font-family: "Inika", serif;
+  font-family: serif;
 }
 
 .form {
@@ -67,9 +67,4 @@
   background: #827569;
   color: #fff;
   cursor: pointer;
-}
-
-.login__link {
-  margin-top: 20px;
-  text-align: center;
 }

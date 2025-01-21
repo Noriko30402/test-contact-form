@@ -22,16 +22,20 @@ class ContactFactory extends Factory
             'category_id' =>$this->faker->randomElement([1, 2, 3, 4, 5]),
             'first_name' => $this->faker->firstName,
             'last_name' =>$this->faker->lastName,
-            'gender' => $this->faker->randomElement(['男', '女','その他']),
-            'email' => $this->faker->unique()->safeEmail,
+            'gender' => $this->faker->randomElement(['1', '2','3']),
+            'email' => $this->faker->safeEmail(),
             'tell' =>$this->faker->phoneNumber,
-            'address' =>$this->faker->address,
-            'building' => $this->faker->company . 'ビル',
+            'address' => $this->faker->city() . $this->faker->streetAddress(),
+            'building' => $this->faker->secondaryAddress(),
             'detail' => $this->faker->sentence(),
 
         ];
     }
 }
+
+// 'category_id' => $this->faker->numberBetween(1, 5),
+//  'building' => $this->faker->company . 'ビル',
+//  address' =>$this->faker->address,
 
 
 

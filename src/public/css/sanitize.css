@@ -11,6 +11,11 @@
   box-sizing: border-box;
 }
 
+/* 追加 */
+p {
+  margin: 0;
+}
+
 /**
 * 1. Add text decoration inheritance in all browsers (opinionated).
 * 2. Add vertical alignment inheritance in all browsers (opinionated).

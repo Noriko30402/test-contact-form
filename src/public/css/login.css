@@ -17,8 +17,7 @@
   margin-bottom: 20px;
   text-align: center;
   color: #8B7969;
-  font-family: "Inika", serif;
-
+  font-family: serif;
 }
 
 .form {
@@ -69,9 +68,4 @@
   color: #fff;
   cursor: pointer;
   
-}
-
-.register__link {
-  margin-top: 20px;
-  text-align: center;
 }

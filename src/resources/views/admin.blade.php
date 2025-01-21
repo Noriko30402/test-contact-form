@@ -4,6 +4,14 @@
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 @endsection
 
+@section('link')
+<form action="/logout" method="post">
+  @csrf
+  <input class="header__link" type="submit" value="logout">
+</form>
+@endsection
+
+
 @section('content')
 
 <div class="Admin__content">
@@ -16,45 +24,46 @@
       <form action="/search" method="get" class="search-filter">
         @csrf
         <div class="search-filter__item">
-          <input class="search-filter__item-input" type="text" name="query" placeholder="名前やメールアドレスを入力してください" value="{{old('query')}}">
+          <input class="search-filter__item-input" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{request('query')}}">
 
           <select class="search-filter__item-gender" name="gender">
+
             <option disabled selected>性別</option>
-              <option value="男">男性</option>
-              <option value="女">女性</option>
-              <option value="その他">その他</option>
-            </select>
+            <option value="1" @if( request('gender')==1 ) selected @endif>男性</option>
+            <option value="2" @if( request('gender')==2 ) selected @endif>女性</option>
+            <option value="3" @if( request('gender')==3 ) selected @endif>その他</option>
+          </select>
 
           <select name="category_id" class="search-filter__item-category">
             <option value="">お問合せの種類</option>
-            @foreach ($categories as $category)
-            <option value="{{ $category->id }}">
-              {{ $category['content']}}</option>
+            @foreach($categories as $category)
+            <option value="{{ $category->id }}" @if( request('category_id')==$category->id ) selected @endif
+              >{{$category->content }}
+            </option>
             @endforeach
           </select>
 
           <div class="search-filter__item-date">
-            <label> <input name="created_at" type="date" /></label>
+            <label> <input name="created_at" type="date" value="{{request('date')}}"/></label>
           </div>
 
           <div class="search-filter__button">
             <button class="search-filter__button-submit" type="submit">検索</button>
-            <button class="search-filter__button-reset" type="submit">リセット</button>
+            <button class="search-filter__button-reset" type="submit" name="reset">リセット</button>
           </div>
         </div>
       </form>
     </div>
-    {{-- {{ $contacts->appends(request()->query())->links('vendor.pagination.custom') }} --}}
-
-      {{ $contacts->links('vendor.pagination.custom') }}
-      {{-- <div class="pagination"> {{ $contacts->links() }} </div>  --}}
-
-
   </div>
 
-  {{-- <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
-  {{-- <div class="pagination"> {{ $contacts->links('vendor.pagination.bootstrap-4') }} </div> --}}
+
+  <div class="export-form">
+    <form action="{{'/export?'.http_build_query(request()->query())}}" method="post">
+      @csrf
+      <input class="export__btn btn" type="submit" value="エクスポート">
+    </form>
+    {{ $contacts->appends(request()->query())->links('vendor.pagination.custom') }}
+  </div>
 
 
   <div class="admin-table">
@@ -70,19 +79,23 @@
       @foreach ($contacts as $contact) 
         <tr class="admin-form__row">
             <td class="admin-form__item">{{ $contact->last_name }}{{ $contact->first_name }}</td>
-            <td class="admin-form__item">{{$contact->gender}}</td>
+            <td class="admin-form__item">
+            @if($contact->gender == 1)
+            男性
+            @elseif($contact->gender == 2)
+            女性
+            @else
+            その他
+            @endif
+            </td>
             <td class="admin-form__item">{{$contact->email}}</td>
             <td class="admin-form__item">{{ $contact['category']['content'] }}</td> 
-            <td class="admin-form__item"><a href="" class="admin-detail">詳細</a></td>
+            <td class="admin-form__item"><a href="#{{$contact->id}}" class="admin-detail">詳細</a></td>
             {{-- <livewire:example-component /> --}}
           </tr>
 
-
-
-
-
           {{-- モーダル --}}
-          {{-- <div class="modal" id="{{$contact->id}}">
+            <div class="modal" id="{{$contact->id}}">
             <a href="#!" class="modal-overlay"></a>
             <div class="modal__inner">
               <div class="modal__content">
@@ -92,7 +105,7 @@
                     <label class="modal-form__label" for="">お名前</label>
                     <p>{{$contact->first_name}}{{$contact->last_name}}</p>
                   </div>
-    
+
                   <div class="modal-form__group">
                     <label class="modal-form__label" for="">性別</label>
                     <p>
@@ -138,18 +151,11 @@
     
               <a href="#" class="modal__close-btn">×</a>
             </div>
-          </div> --}}
-    
+          </div>
+
       @endforeach
     </table>
 
   </div>
 </div>
-{{-- <x-guest-layout>
-  <livewire:example-component />
-</x-guest-layout> --}}
-
-{{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script> 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 @endsection

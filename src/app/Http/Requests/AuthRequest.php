@@ -36,8 +36,8 @@ class AuthRequest extends FormRequest
             'email.required' => 'メールアドレスを入力してください',
             'email.email' => 'メールアドレスはメール形式で入力してください',
 
-            'name' => 'お名前を入力してください',
-            'password' => 'パスワードを入力してください'
+            'name.required' => 'お名前を入力してください',
+            'password.required' => 'パスワードを入力してください'
 
         ];
     }
