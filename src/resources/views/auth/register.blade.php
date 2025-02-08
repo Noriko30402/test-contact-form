@@ -9,7 +9,7 @@
   <div class="register-form__heading">
     <h2>register</h2>
   </div>
-  <form class="form"  class="form" action="/register" method="post">
+  <form class="form"  class="form" action="/register" method="post" novalidate>
     @csrf
   <div class="form__box">
     <div class="form__group">
